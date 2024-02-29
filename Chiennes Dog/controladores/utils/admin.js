@@ -1,23 +1,18 @@
-// Constante para establecer el elemento del contenido principal.
-const MAIN = document.querySelector('main');
-MAIN.style.paddingTop = '75px';
-MAIN.style.paddingBottom = '100px';
-MAIN.classList.add('container');
-// Se establece el título de la página web.
-document.querySelector('title').textContent = 'Chiennes Dog';
-// Constante para establecer el elemento del título principal.
-const MAIN_TITLE = document.getElementById('mainTitle');
-MAIN_TITLE.classList.add('text-center', 'py-3');
+//Constantes para el encabezado y el pie de pagina
+const HEADER = document.querySelector("header");
+const FOOTER = document.querySelector("footer");
+
+
 
 /*  Función asíncrona para cargar el encabezado y pie del documento.
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
 
-const loadTemplate = async () => {
-    MAIN.insertAdjacentHTML('beforebegin', `
-                <header>
-                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+HEADER.innerHTML= `
+                
+                <nav class="fixed-top navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="#">Chiennes Dog</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -37,8 +32,8 @@ const loadTemplate = async () => {
                         </a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="GesProductos.html">Gestionar Productos</a></li>
-                          <li><a class="dropdown-item" href="Productos.html">Añadir Productos</a></li>
-                          <li><a class="dropdown-item" href="AcProductos">Actualizar Productos</a></li>
+                          <li><a class="dropdown-item" href="AddProductos.html">Añadir Productos</a></li>
+                          <li><a class="dropdown-item" href="AcProductos.html">Actualizar Productos</a></li>
                           <li>
                             <hr class="dropdown-divider">
                           </li>
@@ -51,7 +46,7 @@ const loadTemplate = async () => {
                         </a>
                         <ul class="dropdown-menu">
                           <li><a class="dropdown-item" href="GesMarca.html">Gestionar Marca</a></li>
-                          <li><a class="dropdown-item" href="AñadirMarca.html">Añadir Marca</a></li>
+                          <li><a class="dropdown-item" href="AddMarca.html">Añadir Marca</a></li>
                           <li><a class="dropdown-item" href="AcMarca.html">Actualizar Marca</a></li>
                           <li>
                             <hr class="dropdown-divider">
@@ -63,7 +58,7 @@ const loadTemplate = async () => {
                           Categorias
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="Categorias.html">Añadir Categoria</a></li>
+                          <li><a class="dropdown-item" href="AddCategoria.html">Añadir Categoria</a></li>
                           <li><a class="dropdown-item" href="GesCategorias.html">Gestionar Categoria</a></li>
                           <li><a class="dropdown-item" href="AcCategoria.html">Actualizar Categoria</a></li>
                           <li>
@@ -79,7 +74,7 @@ const loadTemplate = async () => {
                           Usuarios
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="Usuarios.html">Añadir Usuario</a></li>
+                          <li><a class="dropdown-item" href="AddUsuario.html">Añadir Usuario</a></li>
                           <li><a class="dropdown-item" href="GesUsuario.html">Gestionar Usuario</a></li>
                           <li><a class="dropdown-item" href="AcUsuario.html">Actualizar Usuario</a></li>
                           <li>
@@ -93,16 +88,21 @@ const loadTemplate = async () => {
                   </div>
                 </div>
               </nav> 
-                </header>
-            `);
-    // Se agrega el pie de la página web después del contenido principal.
-    MAIN.insertAdjacentHTML('afterend', `
-            <footer class="text-dark pt-5 pb-4" style="background-color:#a78768" ;>
+                
+            `;
+
+
+
+
+            
+// Se agrega el pie de la página web después del contenido principal.
+FOOTER.innerHTML=`
+            <footer class="text-dark pt-5 pb-4 sticky-bottom" style="background-color:#a78768" ;>
             <div class="container text-center text-md-start">
               <div class="row text-center text-md-start">
         
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-5">
-                  <img src="file:///C:/Users/gyaci/AppData/Local/Microsoft/Windows/INetCache/IE/VXF1WW2Q/logo[1].svg"
+                  <img src="../../recursos/img/logo.svg"
                     class="img-fluid" alt="...">
         
                 </div>
@@ -166,5 +166,4 @@ const loadTemplate = async () => {
               </div>
             </div>
           </footer>
-            `);
-}
+            `;
