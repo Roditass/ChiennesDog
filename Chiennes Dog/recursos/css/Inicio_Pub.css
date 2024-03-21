@@ -1,0 +1,156 @@
+.texto-sobre-imagen {
+    Font-family: Franklin Gothic Medium;
+    font-size: 3vw; /* Tamaño del texto responsive */
+    color: rgb(6, 6, 6); /* Color del texto */
+    position: absolute; /* Posiciona el texto sobre la imagen */
+    top: 20%; /* Lo coloca en la mitad superior de la imagen */
+    left: 50%; /* Lo coloca en el centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centra el texto correctamente */
+}
+
+.texto-sobre-imagen2 {
+    Font-family: Franklin Gothic Medium ;
+    font-size: 2vw; /* Tamaño del texto responsive */
+    color: rgb(6, 6, 6); /* Color del texto */
+    position: absolute; /* Posiciona el texto sobre la imagen */
+    top: 30%; /* Lo coloca en la mitad superior de la imagen */
+    left: 50%; /* Lo coloca en el centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centra el texto correctamente */
+}
+
+@media (max-width: 768px) {
+    .texto-sobre-imagen2 {
+    font-size: 2vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.imagen-fondo {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+.info-text {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center; /* Centra el texto */
+    margin-top: 2rem; /* Margen superior */
+}
+
+@media (max-width: 768px) {
+    .info-text {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.carousel-item img {
+    max-width: 100%; /* Imágenes del carrusel con ancho máximo */
+    height: auto; /* Altura automática para mantener la proporción */
+    margin: 0 auto; /* Centra horizontalmente las imágenes */
+}
+
+@media (max-width: 768px) {
+    .texto-sobre-imagen {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.custom-card {
+    width: 18rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+    /* Transición para el efecto de zoom */
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+    /* Aumentar tamaño al pasar el mouse */
+}
+
+.custom-card .card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.custom-card {
+    margin-top: 2rem; /* Margen superior para las tarjetas */
+    font-family: 'Arial Narrow';
+    font-size: 1vw; /* Tamaño de fuente por defecto */
+    text-align: center; /* Centrar el texto */
+}
+
+@media (max-width: 768px) {
+    .custom-card {
+        font-size: 3vw; /* Tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.custom-button {
+    margin-top: 1rem; /* Margen superior para el botón */
+    background-color: #B99674; /* Color de fondo del botón */
+    border-color: #B99674; /* Color del borde del botón */
+    width: 200px; /* Ancho del botón */
+    border-radius: 30px; /* Bordes ovalados */
+    color: #fff; /* Color del texto del botón */
+}
+
+.custom-button:active {
+    background-color: #947454 !important; /* Color más oscuro */
+    border-color: #B99674; /* Color del borde del botón */
+}
+
+.custom-button:hover {
+    background-color: #947454 !important; /* Color más oscuro */
+    border-color: #B99674; /* Color del borde del botón */
+}
+
+.info-text2 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center; /* Centra el texto */
+    margin-top: 2rem; /* Margen superior */
+}
+
+@media (max-width: 768px) {
+    .info-text2 {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.info-text3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center; /* Centra el texto */
+    margin-top: 2rem; /* Margen superior */
+}
+
+@media (max-width: 768px) {
+    .info-text3 {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.info-text4 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center; /* Centra el texto */
+    margin-top: 2rem; /* Margen superior */
+}
+
+@media (max-width: 768px) {
+    .info-text4 {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
+
+.info-text5 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2vw;
+    text-align: center; /* Centra el texto */
+    margin-top: 2rem; /* Margen superior */
+}
+
+@media (max-width: 768px) {
+    .info-text5 {
+    font-size: 4vw; /* Cambia el tamaño de fuente para dispositivos móviles */
+    }
+}
