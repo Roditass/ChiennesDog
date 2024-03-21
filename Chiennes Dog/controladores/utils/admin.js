@@ -20,71 +20,31 @@ HEADER.innerHTML= `
                     <span class="navbar-toggler-icon"></span>
                   </button>
                   <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                    <ul class="navbar-nav">
-                      <li class="nav-item">
-                        <a class="nav-link" href="Inicio.html">Inicio</a>
-                      </li>
-          
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Productos
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="GesProductos.html">Gestionar Productos</a></li>
-                          <li><a class="dropdown-item" href="AddProductos.html">Añadir Productos</a></li>
-                          <li><a class="dropdown-item" href="AcProductos.html">Actualizar Productos</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                        </ul>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Marcas
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="GesMarca.html">Gestionar Marca</a></li>
-                          <li><a class="dropdown-item" href="AddMarca.html">Añadir Marca</a></li>
-                          <li><a class="dropdown-item" href="AcMarca.html">Actualizar Marca</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                        </ul>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Categorias
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="AddCategoria.html">Añadir Categoria</a></li>
-                          <li><a class="dropdown-item" href="GesCategorias.html">Gestionar Categoria</a></li>
-                          <li><a class="dropdown-item" href="AcCategoria.html">Actualizar Categoria</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                        </ul>
-                      <li class="nav-item">
-                        <a class="nav-link" href="GesPedidos.html">Pedidos</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          Usuarios
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="AddUsuario.html">Añadir Usuario</a></li>
-                          <li><a class="dropdown-item" href="GesUsuario.html">Gestionar Usuario</a></li>
-                          <li><a class="dropdown-item" href="AcUsuario.html">Actualizar Usuario</a></li>
-                          <li>
-                            <hr class="dropdown-divider">
-                          </li>
-                        </ul>
-                      <li class="nav-item">
-                        <a class="nav-link" href="Login.html">Cerrar Sesión</a>
-                      </li>
-                    </ul>
+                  <ul class="navbar-nav ">
+                  <li class="nav-item">
+                      <a class="nav-link" href="Inicio.html">Perros</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="GesCategorias.html">Categorías</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="GesMarca.html">Marcas</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="GesProductos.html">Productos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="GesPedidos.html">Pedidos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="GesUsuario.html">Usuarios</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="index.html">Cerrar sesión</a>
+              </li>
+      
+      
+              </ul> 
                   </div>
                 </div>
               </nav> 
