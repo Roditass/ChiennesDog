@@ -14,7 +14,7 @@ HEADER.innerHTML = `
                 
 <nav class="fixed-top navbar navbar-expand-lg bg-body-tertiary" style="background-color: #a78768;">
 <div class="container-fluid ">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="Inicio.html">
         <img src="../../recursos/img/logo1.svg" alt="Logo" width="60vm" class="d-inline-block align-text-top">
 
     </a>
@@ -25,7 +25,7 @@ HEADER.innerHTML = `
     <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
         <ul class="navbar-nav ">
             <li class="nav-item">
-                <a class="nav-link" href="">Perros</a>
+                <a class="nav-link" href="Inicio.html">Perros</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="">Comida</a>
@@ -53,7 +53,7 @@ HEADER.innerHTML = `
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="Carrito.html">
                     <img src="../../recursos/img/carrito.svg" alt="Logo" width="30vm">
                 </a>
             </li>
@@ -75,45 +75,12 @@ FOOTER.innerHTML = `
               <div class="row text-center text-md-start">
         
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-5">
-                  <img src="../../recursos/img/logo.svg"
+                  <img src="../../recursos/img/logo1.svg"
                     class="img-fluid" alt="...">
         
                 </div>
         
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-3">
-                  <button type="button" class="btn">
-                    <h5 class="text-uppercase mb-2 font-weight-bold text-light">Productos</h5>
-                  </button>
-                  <hr style="color:#ffffff" ; class="mb-4">
-                </div>
-        
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-3">
-                  <button type="button" class="btn">
-                    <h5 class="text-uppercase mb-2 font-weight-bold text-light">Marcas</h5>
-                  </button>
-                  <hr style="color:#ffffff" ; class="mb-4">
-                </div>
-        
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-3">
-                  <button type="button" class="btn">
-                    <h5 class="text-uppercase mb-2 font-weight-bold text-light">Categorías</h5>
-                  </button>
-                  <hr style="color:#ffffff" ; class="mb-4">
-                </div>
-        
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-3">
-                  <button type="button" class="btn">
-                    <h5 class="text-uppercase mb-2 font-weight-bold text-light">Pedidos</h5>
-                  </button>
-                  <hr style="color:#ffffff" ; class="mb-4">
-                </div>
-        
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto nt-3">
-                  <button type="button" class="btn">
-                    <h5 class="text-uppercase mb-2 font-weight-bold text-light">Usuarios</h5>
-                  </button>
-                  <hr style="color:#ffffff" ; class="mb-4">
-                </div>
+                
         
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto nt-3 text-center">
                   <h5 class="text-uppercase mb-2 font-weight-bold text-light">Redes Sociales</h5>
@@ -122,20 +89,21 @@ FOOTER.innerHTML = `
                   <div>
                     <a href="https://www.instagram.com/chiennesdog/" target="_blank">
                       <img src="https://www.svgrepo.com/show/364604/instagram-logo-fill.svg" width="50px" height="50px"
-                        class="rounded" alt="...">
+                        class="rounded" alt="">
                     </a>
                     <a href="https://www.facebook.com/PedigreeCentroamerica/?locale=es_LA" target="_blank">
                       <img src="https://cdn-icons-png.flaticon.com/256/59/59439.png" width="50px" height="50px" class="rounded"
-                        alt="...">
+                        alt="">
         
                     </a>
                     <a href="https://twitter.com/PedigreeLatam" target="_blank">
                       <img src="https://cdn.icon-icons.com/icons2/3261/PNG/512/twitter_logo_icon_206654.png" width="50px"
-                        height="50px" class="rounded" alt="...">
+                        height="50px" class="rounded" alt="">
         
                     </a>
                   </div>
-                </div>
+                  </div>
+                </div>  
               </div>
             </div>
           </footer>
