@@ -11,7 +11,6 @@ class CategoriaHandler
      */
     protected $id = null;
     protected $nombre = null;
-    protected $imagen = null;
 
     /*
      *  Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
@@ -19,8 +18,8 @@ class CategoriaHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria
-                FROM categoria
+        $sql = 'SELECT id_categoria, nombre_categoria
+                FROM tb_categorias
                 WHERE nombre_categoria LIKE ? 
                 ORDER BY nombre_categoria';
         $params = array($value, $value);
@@ -29,24 +28,24 @@ class CategoriaHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO categoria(nombre_categoria, imagen_categoria )
-                VALUES(?, ?)';
-        $params = array($this->nombre, $this->imagen);
+        $sql = 'INSERT INTO tb_categorias(nombre_categoria)
+                VALUES(?)';
+        $params = array($this->nombre);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria, 
-                FROM categoria
+        $sql = 'SELECT id_categoria, nombre_categoria
+                FROM tb_categorias
                 ORDER BY nombre_categoria';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_categoria, nombre_categoria, imagen_categoria
-                FROM categoria
+        $sql = 'SELECT id_categoria, nombre_categoria
+                FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -54,8 +53,8 @@ class CategoriaHandler
 
     public function readFilename()
     {
-        $sql = 'SELECT imagen_categoria
-                FROM categoria
+        $sql = 'SELEC
+                FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -63,16 +62,16 @@ class CategoriaHandler
 
     public function updateRow()
     {
-        $sql = 'UPDATE categoria
-                SET imagen_categoria = ?, nombre_categoria = ?
+        $sql = 'UPDATE tb_categorias
+                SET = nombre_categoria = ?
                 WHERE id_categoria = ?';
-        $params = array($this->imagen, $this->nombre, $this->id);
+        $params = array( $this->nombre, $this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM categoria
+        $sql = 'DELETE FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
