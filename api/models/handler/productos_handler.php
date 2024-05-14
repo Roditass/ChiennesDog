@@ -129,10 +129,11 @@ class ProductoHandler
     */
     public function productosCategoria()
     {
-        $sql = 'SELECT nombre_producto, precio_producto, estado_producto
+        $sql = 'SELECT nombre_producto, nombre_marca, precio_producto, estado, existencia
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_categoria)
-                WHERE id_categoria = ?
+                INNER JOIN tb_marcas USING(id_marca)
+                WHERE id_categoria = ? 
                 ORDER BY nombre_producto';
         $params = array($this->categoria);
         return Database::getRows($sql, $params);

@@ -1,4 +1,4 @@
-fetch('../../recursos/Text/ModalArticles.json')
+fetch('../../recursos/Text/Public/ModalArticles.json')
     .then(response => response.json())
     .then(data => {
         //Texto de modal del artículo/accesorio

@@ -142,4 +142,17 @@ class ClienteHandler
         $params = array($value, $value);
         return Database::getRow($sql, $params);
     }
+
+    /*
+    *   Métodos para generar reportes.
+    */
+    public function clientePedidos()
+    {
+        $sql = 'SELECT c.apellido_cliente, c.nombre_cliente, c.correo_cliente, c.telefono_cliente, COUNT(p.id_pedido) AS total_pedidos
+                FROM tb_clientes c
+                LEFT JOIN tb_pedidos p ON c.id_cliente = p.id_cliente
+                GROUP BY c.apellido_cliente';
+        $params = array($this->categoria);
+        return Database::getRows($sql, $params);
+    }
 }
