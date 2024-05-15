@@ -22,7 +22,7 @@ class CategoriaHandler
                 FROM tb_categorias
                 WHERE nombre_categoria LIKE ? 
                 ORDER BY nombre_categoria';
-        $params = array($value, $value);
+        $params = array($value);
         return Database::getRows($sql, $params);
     }
 
@@ -53,7 +53,7 @@ class CategoriaHandler
 
     public function readFilename()
     {
-        $sql = 'SELEC
+        $sql = 'SELECT
                 FROM tb_categorias
                 WHERE id_categoria = ?';
         $params = array($this->id);
@@ -63,7 +63,7 @@ class CategoriaHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_categorias
-                SET = nombre_categoria = ?
+                SET nombre_categoria = ?
                 WHERE id_categoria = ?';
         $params = array( $this->nombre, $this->id);
         return Database::executeRow($sql, $params);
