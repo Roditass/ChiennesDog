@@ -61,6 +61,7 @@ if (isset($_GET['action'])){
                     $_POST = Validator::validateForm($_POST);
                     if (
                         !$marca->setId($_POST['idMarca']) or
+                        !$marca->setFilename() or
                         !$marca->setNombre($_POST['nombreMarca']) or
                         !$marca->setImagen($_FILES['imagenMarca'], $marca->getFilename())
                     ) {

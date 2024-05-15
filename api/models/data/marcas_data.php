@@ -10,7 +10,7 @@ class MarcaData extends MarcaHandler
 {
     // Atributo genérico para manejo de errores.
     private $data_error = null;
-
+    private $filename = null;
     /*
     *   Métodos para validar y establecer los datos.
     */
@@ -20,7 +20,7 @@ class MarcaData extends MarcaHandler
             $this->id = $value;
             return true;
         } else {
-            $this->data_error = 'El identificador del cliente es incorrecto';
+            $this->data_error = 'El identificador de la marca es incorrecto';
             return false;
         }
     }
@@ -55,9 +55,25 @@ class MarcaData extends MarcaHandler
         }
     }
 
+    public function setFilename()
+    {
+        if ($data = $this->readFilename()) {
+            $this->filename = $data['imagen_marca'];
+            return true;
+        } else {
+            $this->data_error = 'Marca inexistente';
+            return false;
+        }
+    }
+
     // Método para obtener el error de los datos.
     public function getDataError()
     {
         return $this->data_error;
+    }
+
+    public function getFilename()
+    {
+        return $this->filename;
     }
 }
