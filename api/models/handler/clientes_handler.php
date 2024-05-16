@@ -102,7 +102,7 @@ class ClienteHandler
 
     public function readAll()
     {
-        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, dui_cliente, estado_cliente
+        $sql = 'SELECT id_cliente, apellido_cliente, nombre_cliente, telefono_cliente, correo_cliente, dui_cliente
                 FROM tb_clientes
                 ORDER BY apellido_cliente';
         return Database::getRows($sql);
@@ -110,7 +110,7 @@ class ClienteHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, estado_cliente
+        $sql = 'SELECT id_cliente, apellido_cliente, nombre_cliente, telefono_cliente, correo_cliente, dui_cliente
                 FROM tb_clientes
                 WHERE id_cliente = ?';
         $params = array($this->id);
@@ -152,7 +152,7 @@ class ClienteHandler
                 FROM tb_clientes c
                 LEFT JOIN tb_pedidos p ON c.id_cliente = p.id_cliente
                 GROUP BY c.apellido_cliente';
-        $params = array($this->categoria);
+        $params = array($this->id);
         return Database::getRows($sql, $params);
     }
 }
