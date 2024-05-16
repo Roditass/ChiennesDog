@@ -39,16 +39,13 @@ class ProductoData extends ProductoHandler
         }
     }
 
-    public function setMarca($value, $min = 2, $max = 50)
+    public function setMarca($value)
     {
-        if (!Validator::validateAlphanumeric($value)) {
-            $this->data_error = 'El nombre debe ser un valor alfanumérico';
-            return false;
-        } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->nombre = $value;
+        if (Validator::validateNaturalNumber($value)) {
+            $this->marca = $value;
             return true;
         } else {
-            $this->data_error = 'El nombre debe tener una longitud entre ' . $min . ' y ' . $max;
+            $this->data_error = 'El identificador de la categoría es incorrecto';
             return false;
         }
     }

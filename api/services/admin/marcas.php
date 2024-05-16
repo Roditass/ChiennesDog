@@ -70,7 +70,7 @@ if (isset($_GET['action'])){
                         $result['status'] = 1;
                         $result['message'] = 'Marca modificada correctamente';
                         // Se asigna el estado del archivo después de actualizar.
-                        $result['fileStatus'] = Validator::changeFile($_FILES['imagenMarca'], $marca::RUTA_IMAGEN, $producto->getFilename());
+                        $result['fileStatus'] = Validator::changeFile($_FILES['imagenMarca'], $marca::RUTA_IMAGEN, $marca->getFilename());
                     } else {
                         $result['error'] = 'Ocurrió un problema al modificar la marca';
                     }
@@ -83,7 +83,7 @@ if (isset($_GET['action'])){
                         $result['error'] = $marca->getDataError();
                     } elseif ($marca->deleteRow()) {
                         $result['status'] = 1;
-                        $result['message'] = 'Producto eliminado correctamente';
+                        $result['message'] = 'Marca eliminada correctamente';
                         // Se asigna el estado del archivo después de eliminar.
                         $result['fileStatus'] = Validator::deleteFile($marca::RUTA_IMAGEN, $marca->getFilename());
                     } else {

@@ -59,7 +59,7 @@ const loadTemplate = async () => {
                   <a class="nav-link" href="GesUsuario.html">Usuarios</a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="index.html">Cerrar sesión</a>
+              <a class="nav-link" onclick="logOut()">Cerrar sesión</a>
           </li>
   
 
@@ -82,8 +82,3 @@ const loadTemplate = async () => {
         }
     }
 }
-// HEADER.innerHTML = `
-                
-                
-                
-//             `;
