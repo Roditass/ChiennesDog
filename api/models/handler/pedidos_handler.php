@@ -84,6 +84,19 @@ class PedidoHandler
         return Database::getRows($sql, $params);
     }
 
+    public function readAll()
+    {
+        $sql = 'SELECT 	 p.id_pedido, p.id_cliente, dp.id_producto, dp.id_detalle, vp.id_valoracion, vp.id_vp,c.nombre_cliente, c.apellido_cliente, p.estado_pedido, 
+                p.fecha_registro, p.direccion_pedido, pr.nombre_producto, dp.cantidad_producto, dp.precio_producto, v.calificacion_producto, v.fecha_valoracion
+                FROM tb_pedidos p
+                JOIN tb_detalles_pedidos dp ON p.id_pedido = dp.id_pedido
+                LEFT JOIN tb_valoracion_productos vp ON dp.id_detalle = vp.id_detalle
+                LEFT JOIN tb_valoraciones v ON vp.id_valoracion = v.id_valoracion
+                JOIN tb_clientes c ON p.id_cliente = c.id_cliente
+                JOIN tb_productos pr ON dp.id_producto = pr.id_producto';
+        return Database::getRows($sql);
+    }
+
     // Método para finalizar un pedido por parte del cliente.
     public function finishOrder()
     {
