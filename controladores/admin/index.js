@@ -15,15 +15,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         location.href = 'Inicio.html';
     } else if (DATA.status) {
         // Se establece el título del contenido principal.
-        MAIN_TITLE.textContent = 'Iniciar sesión';
+        // MAIN_TITLE.textContent = 'Iniciar sesión';
         // Se muestra el formulario para iniciar sesión.
         LOGIN_FORM.classList.remove('d-none');
         sweetAlert(4, DATA.message, true);
     } else {
+        console.log("holi")
         // Se establece el título del contenido principal.
-        // MAIN_TITLE.textContent = 'Registrar primer usuario';
+        MAIN_TITLE.textContent = 'Registrar primer usuario';
         // Se muestra el formulario para registrar el primer usuario.
-        // SIGNUP_FORM.classList.remove('d-none');
+        SIGNUP_FORM.classList.remove('d-none');
         sweetAlert(4, DATA.error, true);
     }
 });
@@ -55,7 +56,7 @@ LOGIN_FORM.addEventListener('submit', async (event) => {
     const DATA = await fetchData(USER_API, 'logIn', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        sweetAlert(1, DATA.message, true, 'Inicio.html');
+        sweetAlert(1, DATA.message, true, 'GesCategorias.html');
     } else {
         sweetAlert(2, DATA.error, false);
     }
