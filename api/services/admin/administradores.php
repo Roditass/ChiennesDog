@@ -88,6 +88,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al eliminar el administrador';
                 }
                 break;
+            case 'getUser':
+                    if (isset($_SESSION['correoAdministrador'])) {
+                        $result['status'] = 1;
+                        $result['username'] = $_SESSION['correoAdministrador'];
+                    } else {
+                        $result['error'] = 'Correo de administrador indefinido';
+                    }
+                    break;
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;

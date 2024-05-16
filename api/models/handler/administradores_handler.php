@@ -28,12 +28,27 @@ class AdministradorHandler
             return false;
         } elseif (password_verify($password, $data['clave_administrador'])) {
             $_SESSION['idAdministrador'] = $data['id_administrador'];
+            $_SESSION['correoAdministrador'] = $data['correo_administrador'];
             return true;
         } else {
             return false;
         }
     }
 
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT clave_administrador
+                FROM tb_administradores
+                WHERE id_administrador = ?';
+        $params = array($_SESSION['idAdministrador']);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['clave_administrador'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function changePassword()
     {
         $sql = 'UPDATE tb_administradores

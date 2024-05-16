@@ -14,7 +14,7 @@ class AdministradorData extends AdministradorHandler
     /*
      *  Métodos para validar y asignar valores de los atributos.
      */
-    public function setid_administrador($value)
+    public function setId($value)
     {
         if (Validator::validateNaturalNumber($value)) {
             $this->id = $value;

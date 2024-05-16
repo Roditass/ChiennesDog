@@ -11,13 +11,13 @@ class ProductoHandler
     *   Declaración de atributos para el manejo de datos.
     */
     protected $id = null;
-    protected $categoria = null;
-    protected $marca = null;
     protected $nombre = null;
     protected $descripcion = null;
     protected $precio = null;
     protected $existencias = null;
     protected $imagen = null;
+    protected $categoria = null;
+    protected $marca = null;
     protected $estado = null;
 
     // Constante para establecer la ruta de las imágenes.
@@ -41,7 +41,7 @@ class ProductoHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO producto(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_marca, id_administrador)
+        $sql = 'INSERT INTO tb_productos(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_marca, id_administrador)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->estado, $this->categoria, $this->marca, $_SESSION['idAdministrador']);
         return Database::executeRow($sql, $params);
@@ -59,7 +59,7 @@ class ProductoHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, id_categoria, id_marca, estado_producto
+        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, existencias_productos, imagen_producto, id_categoria, id_marca, estado_producto
                 FROM tb_productos
                 WHERE id_producto = ?';
         $params = array($this->id);
@@ -94,7 +94,7 @@ class ProductoHandler
 
     public function readProductosCategoria()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_productos
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_categoria)
                 WHERE id_categoria = ? AND estado_producto = true
@@ -129,7 +129,7 @@ class ProductoHandler
     */
     public function productosCategoria()
     {
-        $sql = 'SELECT nombre_producto, nombre_marca, precio_producto, estado, existencia
+        $sql = 'SELECT nombre_producto, nombre_marca, precio_producto, estado, existencias_productos
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_categoria)
                 INNER JOIN tb_marcas USING(id_marca)

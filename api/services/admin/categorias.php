@@ -65,8 +65,7 @@ if (isset($_GET['action'])) {
                 } elseif ($categoria->updateRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Categoría modificada correctamente';
-                    // Se asigna el estado del archivo después de actualizar.
-                    $result['fileStatus'] = Validator::changeFile($_FILES['imagenCategoria'], $categoria::RUTA_IMAGEN, $categoria->getFilename());
+                    
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar la categoría';
                 }

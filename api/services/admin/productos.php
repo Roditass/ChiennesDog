@@ -12,7 +12,6 @@ if (isset($_GET['action'])) {
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
     if (isset($_SESSION['idAdministrador'])) {
-        $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
@@ -28,16 +27,16 @@ if (isset($_GET['action'])) {
                 case 'createRow':
                     $_POST = Validator::validateForm($_POST);
                     if (
-                        !$producto->setCategoria($_POST['categoriaProducto']) or
-                        !$producto->setMarca($_POST['marcaProducto']) or
                         !$producto->setNombre($_POST['nombreProducto']) or
                         !$producto->setDescripcion($_POST['descripcionProducto']) or
                         !$producto->setPrecio($_POST['precioProducto']) or
                         !$producto->setExistencias($_POST['existenciasProducto']) or
-                        !$producto->setImagen($_FILES['imagenProducto'], $producto->getFilename())
-                        !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0)
+                        !$producto->setMarca($_POST['marcaProducto']) or
+                        !$producto->setCategoria($_POST['categoriaProducto']) or
+                        !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0) or
+                        !$producto->setImagen($_FILES['imagenProducto'])
                     ) {
-                        $result['error'] = $pedido->getDataError();
+                        $result['error'] = $producto->getDataError();
                     } elseif ($producto->createRow()) {
                         $result['status'] = 1;
                         $result['message'] = 'Producto creado correctamente';
@@ -48,13 +47,13 @@ if (isset($_GET['action'])) {
                     }
                     break;
                 case 'readAll':
-                    if ($result['dataset'] = $producto->readAll()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
-                    } else {
-                        $result['error'] = 'No existen productos registrados';
-                    }
-                    break;
+                        if ($result['dataset'] = $producto->readAll()) {
+                            $result['status'] = 1;
+                            $result['message'] = 'Existen ' . count($result['dataset']) . ' registros';
+                        } else {
+                            $result['error'] = 'No existen productos registrados';
+                        }
+                        break;
                 case 'readOne':
                     if (!$producto->setId($_POST['idProducto'])) {
                         $result['error'] = $producto->getDataError();
@@ -70,10 +69,10 @@ if (isset($_GET['action'])) {
                         !$producto->setId($_POST['idProducto']) or
                         !$producto->setFilename() or                        
                         !$producto->setCategoria($_POST['categoriaProducto']) or
+                        !$producto->setMarca($_POST['marcaProducto']) or
                         !$producto->setNombre($_POST['nombreProducto']) or
                         !$producto->setDescripcion($_POST['descripcionProducto']) or
                         !$producto->setPrecio($_POST['precioProducto']) or
-                        !$producto->setExistencias($_POST['existenciasProducto']) or
                         !$producto->setImagen($_FILES['imagenProducto'], $producto->getFilename()) or
                         !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0) 
                     ) {
@@ -115,7 +114,7 @@ if (isset($_GET['action'])) {
                     } else {
                         $result['error'] = 'No hay datos disponibles';
                     }
-                    break;
+                    break; 
                 default:
                     $result['error'] = 'Acción no disponible dentro de la sesión';
             }
