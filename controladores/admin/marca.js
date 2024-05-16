@@ -80,12 +80,12 @@ const fillTable = async (form = null) => {
                     <td><img src="${SERVER_URL}images/marcas/${row.imagen_marca}" height="50"></td>
                     <td>${row.nombre_marca}</td>
                     <td>
-                        <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_marca})">
-                            <i class="bi bi-pencil-fill"></i>
-                        </button>
-                        <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_marca})">
-                            <i class="bi bi-trash-fill"></i>
-                        </button>
+                    <button type="button" class="btn btn-info" onclick="openUpdate(${row.id_categoria})">
+                        <i class="bi bi-pencil-square" style="color: white;"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger" onclick="openDelete(${row.id_categoria})">
+                        <i class="bi bi-trash3" style="color: white;"></i>
+                    </button>
                         <button type="button" class="btn btn-warning" onclick="openReport(${row.id_marca})">
                             <i class="bi bi-filetype-pdf"></i>
                         </button>
