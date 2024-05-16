@@ -1,6 +1,17 @@
 //Constantes para el encabezado y el pie de pagina
 const HEADER = document.querySelector("header");
 
+const USER_API = 'services/admin/administradores.php';
+// Constante para establecer el elemento del contenido principal.
+const MAIN = document.querySelector('main');
+MAIN.style.paddingTop = '75px';
+MAIN.style.paddingBottom = '100px';
+MAIN.classList.add('container');
+// Se establece el título de la página web.
+document.querySelector('title').textContent = 'Chiennes Dog - Dashboard';
+// Constante para establecer el elemento del título principal.
+const MAIN_TITLE = document.getElementById('mainTitle');
+MAIN_TITLE.classList.add('text-center', 'py-3');
 
 
 

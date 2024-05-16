@@ -28,6 +28,7 @@ class AdministradorHandler
             return false;
         } elseif (password_verify($password, $data['clave_administrador'])) {
             $_SESSION['idAdministrador'] = $data['id_administrador'];
+            $_SESSION['correoAdministrador'] = $data['correo_administrador'];
             return true;
         } else {
             return false;
