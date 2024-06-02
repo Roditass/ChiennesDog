@@ -12,55 +12,41 @@ const FOOTER = document.querySelector("footer");
 
 HEADER.innerHTML = `
                 
-<nav class="fixed-top navbar navbar-expand-lg bg-body-tertiary" style="background-color: #a78768;">
-<div class="container-fluid ">
-    <a class="navbar-brand" href="Inicio.html">
-        <img src="../../recursos/img/logo1.svg" alt="Logo" width="60vm" class="d-inline-block align-text-top">
+<nav class="fixed-top navbar navbar-expand-lg nav-bg">
+        <div class="container-fluid ms-5">
+            <a class="navbar-brand" href="#">
+                <img src="../../recursos/img/logoChiennes.svg" alt="Logo" width="60vm"
+                    class="d-inline-block align-text-top me-5 white-text">Chiennes Dog
 
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-around" id="navbarNav">
-        <ul class="navbar-nav ">
-            <li class="nav-item">
-                <a class="nav-link" href="Inicio.html">Perros</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Comida</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Cosméticos y peluquería</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Juguetes</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Accesorios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="">Descanso</a>
-            </li>
-
-
-
-        </ul> 
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="">
-                    <img src="../../recursos/img/user.svg" alt="Logo" width="30vm">
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="Carrito.html">
-                    <img src="../../recursos/img/carrito.svg" alt="Logo" width="30vm">
-                </a>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
+                <ul class="navbar-nav me-5">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="../../recursos/img/user.svg" alt="Logo" width="30vm">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Registrarse</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <img src="../../recursos/img/carrito.svg" alt="Logo" width="30vm">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
                 
             `;
 
