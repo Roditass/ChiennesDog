@@ -24,6 +24,7 @@ SEARCH_FORM.addEventListener('submit', (event) => {
 });
 
 const fillTable = async (form = null) => {
+    console.log("aqui tilin")
     // Se inicializa el contenido de la tabla.
     ROWS_FOUND.textContent = '';
     TABLE_BODY.innerHTML = '';
@@ -38,7 +39,12 @@ const fillTable = async (form = null) => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TABLE_BODY.innerHTML += `
                 <tr>
-                    <td>${row.nombre_pedido}</td>
+                    <td>${row.nombre_cliente}</td>
+                    <td>${row.nombre_producto}</td>
+                    <td>${row.cantidad_producto}</td>
+                    <td>${row.precio_producto}</td>
+                    <td>${row.calificacion_producto}</td>
+                    <td>${row.fecha_valoracion}</td>
                 </tr>
             `;
         });
