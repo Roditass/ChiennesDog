@@ -63,15 +63,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer" id="shoppingForm">
-                        <input type="number" class="d-none" id="idProducto" name="idProducto">
-                        <button class="btn btn-secundary color" type="submit" id="BtnAdd"
-                            data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"></button>
-                        <div class="wrapper">
-                            <button class="minus btn" id="Minus"></button>
-                            <span class="num" id="cantidadProducto"></span>
-                            <button class="plus btn" id="Plus"></button>
-                        </div>
+                    <div class="modal-footer">
+                        <form id="shoppingForm">
+                            <div class="wrapper">
+                                <button type="button" class="minus btn" id="Minus"></button>
+                                <span type="number" name="cantidadProducto" class="num" id="cantidadProducto"></span>
+                                <button type="button" class="plus btn" id="Plus"></button>
+                            </div>
+                            <input type="number" class="d-none" id="idProducto" name="idProducto">
+                            <button class="btn btn-secundary color" type="submit" id="BtnAdd"
+                                data-bs-target="#exampleModalToggle2" data-bs-toggle="modal"></button>
+
+                        </form>
                     </div>
                 </div>
             </div>
@@ -108,7 +111,7 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                 </div>
 
-                                <button type="button" id="BtnRate" class="btn btn-secundary color"
+                                <button type="submit" id="BtnRate" class="btn btn-secundary color"
                                     data-bs-dismiss="modal"></button>
                             </div>
                             <div class="col-12 col-sm-6">

@@ -1,5 +1,6 @@
 // Constante para completar la ruta de la API.
 const PRODUCTO_API = 'services/public/producto.php';
+const PEDIDO_API = 'services/public/pedido.php';
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
 const PRODUCTOS = document.getElementById('productos');
@@ -13,6 +14,7 @@ const SAVE_MODAL = new bootstrap.Modal('#detalle'),
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_PRODUCTO = document.getElementById('idProducto'),
+    CANTIDAD_PRODUCTO = document.getElementById('cantidadProducto'),
     MARCA_PRODUCTO = document.getElementById('marcaProducto'),
     CATEGORIA_PRODUCTO = document.getElementById('categoriaProducto'),
     NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
@@ -102,12 +104,12 @@ SHOPPING_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(SHOPPING_FORM);
+    const FORM = new FormData(SHOPPING_FORM);   
     // Petición para guardar los datos del formulario.
     const DATA = await fetchData(PEDIDO_API, 'createDetail', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
     if (DATA.status) {
-        sweetAlert(1, DATA.message, false, 'cart.html');
+        sweetAlert(1, DATA.message, false, 'Carrito.html');
     } else if (DATA.session) {
         sweetAlert(2, DATA.error, false);
     } else {
