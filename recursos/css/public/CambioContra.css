@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    flex-direction: row;
+    background-color: #5a3728;
+    justify-content: center;
+    align-items: center;
+}
+
+.row.cafe{
+    border-radius: 20px;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+    background-color: #B99674;
+
+}
+
+.row.white{
+    border-radius: 20px;
+    margin: 10%;
+    background-color: white;
+    height: auto;   
+}
+
+.col.image{
+    background-color: white;
+
+}
+
+.btnAceptar{
+    background-color: #C37121;
+}

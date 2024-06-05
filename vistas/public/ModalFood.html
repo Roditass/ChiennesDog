@@ -21,35 +21,35 @@
     <header></header>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalle">
         Launch demo modal
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalle">
         Launch demo modal
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalle">
         Launch demo modal
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalle">
         Launch demo modal
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#detalle">
         Launch demo modal
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="detalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Pedigree</h1>
+                    <h1 class="modal-title fs-5" id="marcaProducto">Pedigree</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row text-center text-md-start align-items-center">
                         <div class="col-sm-5 col-12">
-                            <h3>Ponmy</h3>
-                            <img src="../../recursos/img/PedigreeComida.png" class="img-fluid" alt="...">
+                            <h3 id="nombreProducto">Ponmy</h3>
+                            <img src="../../recursos/img/PedigreeComida.png" id="imagenProducto" class="img-fluid" alt="...">
 
                             <div class="row">
                                 <div class="rating text-center">
@@ -63,20 +63,22 @@
                         </div>
                         <div class="col-sm-7 col-12">
                             <div class="container align-items-center">
+                                <h4 id="mainTitle"></h4>
                                 <h5 id="Description"></h5>
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus dolorum,
+                                <p id="descripcionProducto">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus dolorum,
                                     iusto
                                     dicta modi nihil earum consequuntur sed quo praesentium unde animi doloremque
                                     pariatur
                                     officia, dolore rem quaerat nisi esse vero.</p>
-                                <h5>$3.75</h5>
+                                <h5 id="precioProducto">$3.75</h5>
+                                <h5 id="existenciasProducto">8</h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-
-                    <button class="btn btn-secundary color" id="BtnAdd" data-bs-target="#exampleModalToggle2"
+                <div class="modal-footer" id="shoppingForm">
+                    <input type="number" class="d-none" id="idProducto" name="idProducto">
+                    <button class="btn btn-secundary color" type="submit" id="BtnAdd" data-bs-target="#exampleModalToggle2"
                         data-bs-toggle="modal"></button>
                     <div class="wrapper">
                         <button class="minus btn" id="Minus"></button>
@@ -88,13 +90,14 @@
         </div>
     </div>
 
-    
+
     <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
         tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button class="btn bi bi-chevron-left" data-bs-target="#exampleModal" data-bs-toggle="modal"></button>
+                    <button class="btn bi bi-chevron-left" data-bs-target="#detalle°"
+                        data-bs-toggle="modal"></button>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -104,16 +107,22 @@
                         <div class="col-12 col-sm-6 text-center mb-3">
                             <h5 id="Opinion"></h5>
                             <h2 id="Rate"></h2>
-                            <div class="row ">
+                            <div class="row mb-3">
                                 <div class="stars text-center mb-3">
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
                                     <i class="fa-solid fa-star"></i>
-                                  </div>
+                                </div>
                             </div>
-                            <button type="button" id="BtnRate" class="btn btn-secundary color" data-bs-dismiss="modal"></button>
+                            <h6 class="mb-3">Comenta que te parecio el producto</h6>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+
+                            <button type="button" id="BtnRate" class="btn btn-secundary color"
+                                data-bs-dismiss="modal"></button>
                         </div>
                         <div class="col-12 col-sm-6">
                             <img src="../../recursos/img/PerroComiendo.png" class="img-fluid" alt="...">
@@ -141,5 +150,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
+    <!-- Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controllers/public/detail.js"></script>
 
 </html>
