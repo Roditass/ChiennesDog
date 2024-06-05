@@ -10,3 +10,7 @@
 .nav-bg{
     background-color: #472B1F;
 }
+
+.nav.white-text{
+    color: white;
+}
