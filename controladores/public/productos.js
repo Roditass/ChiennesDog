@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     FORM.append('idMarca', PARAMS.get('id'));
     // Petición para solicitar los productos de la categoría seleccionada.
     const DATA = await fetchData(PRODUCTO_API, 'readProductosMarca', FORM);
- 
     console.log( FORM.append('idMarca', PARAMS.get('id')));
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
@@ -109,7 +108,6 @@ SHOPPING_FORM.addEventListener('submit', async (event) => {
     const DATA = await fetchData(PEDIDO_API, 'createDetail', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se constata si el cliente ha iniciado sesión.
     if (DATA.status) {
-        sweetAlert(1, DATA.message, false, 'Carrito.html');
     } else if (DATA.session) {
         sweetAlert(2, DATA.error, false);
     } else {
