@@ -1,31 +1,20 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../models/data/productos_data.php');
+require_once('../../models/data/marcas_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
     // Se instancia la clase correspondiente.
-    $producto = new ProductoData;
+    $marca = new marcaData;
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
     // Se compara la acción a realizar según la petición del controlador.
     switch ($_GET['action']) {
-        case 'readProductosMarca':
-            if (!$producto->setMarca($_POST['idMarca'])) {
-                $result['error'] = $producto->getDataError();
-            } elseif ($result['dataset'] = $producto->readProductosMarca()) {
+        case 'readAll':
+            if ($result['dataset'] = $marca->readAll()) {
                 $result['status'] = 1;
             } else {
-                $result['error'] = 'No existen productos para mostrar';
-            }
-            break;
-        case 'readOne':
-            if (!$producto->setId($_POST['idProducto'])) {
-                $result['error'] = $producto->getDataError();
-            } elseif ($result['dataset'] = $producto->readOne()) {
-                $result['status'] = 1;
-            } else {
-                $result['error'] = 'Producto inexistente';
+                $result['error'] = 'No existen marcas para mostrar';
             }
             break;
         default:
@@ -40,4 +29,3 @@ if (isset($_GET['action'])) {
 } else {
     print(json_encode('Recurso no disponible'));
 }
-    
