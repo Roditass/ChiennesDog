@@ -1,10 +1,19 @@
 .btn.btn-secundary.color{
-    background-color: #a78768;
+    background-color: #a78768 !important;
     color: white;
 }
 
+.color{
+    background-color: #a78768 !important;
+    color: white !important;
+}
+
 .white-text{
-    color: white;
+    color: white !important;
+}
+
+.black-text{
+    color: black;
 }
 
 .nav-bg{
