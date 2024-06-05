@@ -93,14 +93,15 @@ class ProductoHandler
         return Database::executeRow($sql, $params);
     }
 
-    public function readProductosCategoria()
+    public function readProductosMarca()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_productos
-                FROM tb_productos
-                INNER JOIN tb_categorias USING(id_categoria)
-                WHERE id_categoria = ? AND estado_producto = true
-                ORDER BY nombre_producto';
-        $params = array($this->categoria);
+        $sql = 'SELECT p.id_producto, p.imagen_producto, p.nombre_producto, p.descripcion_producto, p.precio_producto, p.existencias_producto,c.nombre_categoria
+                FROM tb_productos p
+                INNER JOIN tb_marcas m ON p.id_marca = m.id_marca
+                INNER JOIN tb_categorias c ON p.id_categoria = c.id_categoria
+                WHERE p.id_marca = ? AND p.estado_producto = true
+                ORDER BY p.nombre_producto;';
+        $params = array($this->marca);
         return Database::getRows($sql, $params);
     }
 
