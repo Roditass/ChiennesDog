@@ -1,34 +1,133 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chiennes Dog</title>
-    <link rel="stylesheet" href="../../recursos/css/Login.css">
+    <link rel="stylesheet" href="../../recursos/css/Color.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../recursos/css/Utilidades.css">
 </head>
+
 <body>
-    <!-- Diseño Login -->
-    <div class="login-form">
-        <h1></h1>
-        <div class="container">
-            <div class="main">
-                <div class="content">
-                    <h2>Bienvenido a </h2>
-                    <h2>Chiennes Dog</h2>
-                    <form action="Inicio.html" method="post">
-                        <input type="text" name="correo" placeholder="Correo" required autofocus="">
-                        <input type="password" name="contraseña" placeholder="Contraseña" required autofocus="">
-                         <button class="btn" type="submit">
-                            Iniciar sesión
-                         </button>
-                    </form>
-                    <p class="account">"Lo mejor para tu mejor amigo"</p>
+    <main>
+        
+        <div class="container d-flex justify-content-center row ps-5">
+            <div id="carouselCaptions" class="carousel slide py-5" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselCaptions" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
                 </div>
-                <div class="form-img">
-                    <img src="https://img.freepik.com/psd-gratis/adorable-cachorro-jack-russell-retriever-bufanda-navidad_53876-74015.jpg?t=st=1709005718~exp=1709009318~hmac=daf46e3be5d54eb41492d44f98c9f3b684e9f2a7eba3dbef8edf916794d11d4f&w=360" alt="">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../../recursos/img/carousel/eat.jpg" class="d-block w-100" alt="Slide 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Calidad Asegurada</h5>
+                            <p>Todos nuestros productos cuentan con la máxima calidad posible.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../recursos/img/carousel/perro.jpg" class="d-block w-100" alt="Slide 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Juguetes Divertidos</h5>
+                            <p>Mantén a tu perro entretenido con nuestros juguetes de alta calidad.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../../recursos/img/carousel/accesorio.jpg" class="d-block w-100" alt="Slide 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Accesorios de Moda</h5>
+                            <p>Encuentra collares, correas y más en nuestra colección de accesorios para perros.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <h5 class="text-center">Nuestras marcas:</h5>
+            <div class="row justify-content-center text-center" id="marcas"></div>
+            <div class="col-6 py-5">
+                <div class="col">
+                    <h4>Preguntas frecuentes</h4>
+                    <div class="accordion accordion-flush rounded" id="accordionFlushExample">
+                        <!-- Pregunta 1 -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                              ¿Cuáles son las condiciones para devolver un producto?
+                            </button>
+                          </h2>
+                          <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Las condiciones para devolver un producto incluyen:
+                              <ul>
+                                <li>El producto debe estar en su estado original y sin abrir.</li>
+                                <li>El producto debe devolverse dentro de los 30 días posteriores a la compra.</li>
+                                <li>Se puede aplicar una tarifa de reposición del 15% si el producto ha sido abierto o usado.</li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Pregunta 2 -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                              ¿Cómo puedo solicitar una devolución?
+                            </button>
+                          </h2>
+                          <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">Para solicitar una devolución, sigue estos pasos:
+                              <ol>
+                                <li>Empaqueta el producto de forma segura y adjunta la etiqueta de devolución proporcionada.</li>
+                                <li>Envía el paquete de vuelta a nuestra dirección.</li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Pregunta 3 -->
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                              ¿Cuál es el plazo para solicitar una devolución?
+                            </button>
+                          </h2>
+                          <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">El plazo para solicitar una devolución es de 30 días a partir de la fecha de compra del producto.</div>
+                          </div>
+                        </div>
+                      </div>
+                      
                 </div>
             </div>
+           
         </div>
-    </div>
+        
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Llamada al controlador general de la aplicación -->
+    <script type="text/javascript" src="../../controladores/utils/components.js"></script>
+    <!-- Llamada al controlador del sitio público -->
+    <script type="text/javascript" src="../../controladores/utils/public.js"></script>
+    <!-- Llamada al controlador de la página web -->
+    <script type="text/javascript" src="../../controladores/public/index.js"></script>
 </body>
+
 </html>
