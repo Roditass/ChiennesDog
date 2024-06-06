@@ -84,6 +84,15 @@ if (isset($_GET['action'])) {
                 //     $result['error'] = 'Ocurrió un problema al agregar el comentario';
                 // }
                 // break;
+                case 'readComent':
+                    if (!$comentario->setIdProducto($_POST['idProducto'])) {
+                        $result['error'] = $comentario->getDataError();
+                    } elseif ($result['dataset'] = $comentario->readComent()) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['error'] = 'No existen comentarios para mostrar';
+                    }
+                    break;
             } 
         }else {
                 // Se compara la acción a realizar cuando un cliente no ha iniciado sesión.

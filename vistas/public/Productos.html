@@ -24,8 +24,6 @@
             <div class="row" id="productos"></div>
         </div>
 
-
-
         <!-- Modal -->
         <div class="modal fade" id="detalle" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -105,12 +103,13 @@
                                             <i class="fa-solid fa-star"></i>
                                             <i class="fa-solid fa-star"></i>
                                         </div>
-                                        <input type="number" class="d-none" id="valoracionPedido" name="valoracionPedido">
+                                        <input type="number" class="d-none" id="valoracionPedido"
+                                            name="valoracionPedido">
                                     </div>
                                     <h6 class="mb-3">Comenta que te parecio el producto</h6>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="comentarioPedido" name="comentarioPedido"
-                                            rows="3"></input>
+                                        <input type="text" class="form-control" id="comentarioPedido"
+                                            name="comentarioPedido" rows="3"></input>
                                     </div>
 
                                     <button type="submit" id="BtnRate" class="btn btn-secundary color"
@@ -125,6 +124,27 @@
                 </div>
             </div>
         </div>
+        </div>
+
+
+        <div class="modal fade" id="coments" tabindex="-1" aria-labelledby="coments" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="coments">Comentarios</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5 id="mainTitle2"></h5>
+                        <div id="modalComent" class="row">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

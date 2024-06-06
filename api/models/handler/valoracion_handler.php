@@ -6,6 +6,7 @@ class ValoracionHandler
     protected $id_valoracion = null;
     protected $comentario = null;
     protected $calificacion_producto = null;
+    protected $id_producto = null;
     /*
      * Método para crear una nueva valoración.
      */
@@ -50,5 +51,19 @@ class ValoracionHandler
 
          return Database::executeRow($sql, array());
         
+    }
+
+    public function readComent()
+    {
+        $sql = 'SELECT c.nombre_cliente, v.comentario, v.calificacion_producto
+        FROM tb_valoracion_productos vp
+        JOIN tb_valoraciones v ON vp.id_valoracion = v.id_valoracion
+        JOIN tb_detalles_pedidos dp ON vp.id_detalle = dp.id_detalle
+        JOIN tb_pedidos pd ON dp.id_pedido = pd.id_pedido
+        JOIN tb_clientes c ON pd.id_cliente = c.id_cliente
+        JOIN tb_productos p ON dp.id_producto = p.id_producto
+        WHERE p.id_producto = ?';
+        $params = array($this->id_producto);
+        return Database::getRows($sql, $params);
     }
 }

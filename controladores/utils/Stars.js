@@ -9,7 +9,7 @@ stars.forEach((star, index1) => {
       index1 >= index2 ? star.classList.add("active") : star.classList.remove("active");
 
       //para ver las estrellas
-      console.log(index1 + 1 + " estrellas")
+      // console.log(index1 + 1 + " estrellas") //depurar
       valoracionPedidoInput.value = index1 + 1;
     });
   });
