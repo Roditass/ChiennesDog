@@ -22,6 +22,7 @@ const loadTemplate = async () => {
         // Se verifica si la página web no es el inicio de sesión, de lo contrario se direcciona a la página web principal.
         if (!location.pathname.endsWith('login.html')) {
             // Se agrega el encabezado de la página web antes del contenido principal.
+            
             MAIN.insertAdjacentHTML('beforebegin', `
                 <header>
                     <nav class="navbar fixed-top navbar-expand-lg nav-bg">
@@ -36,9 +37,13 @@ const loadTemplate = async () => {
                             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div class="navbar-nav ms-auto">
                                     <a class="nav-link" href="index.html"> <img src="../../recursos/img/shop.svg" alt="Catálogo" width="30vm"></a>
+                                    <a class="nav-link" href="perfil.html" >
+                                            <img src="../../recursos/img/profile.svg" alt="Perfil" width="30vm">
+                                    </a>
                                     <a class="nav-link" href="carrito.html">
                                             <img src="../../recursos/img/carrito.svg" alt="Carrito" width="30vm">
                                     </a>
+                                    
                                     <a class="nav-link" href="#" onclick="logOut()"><img src="../../recursos/img/logout.svg" alt="Cerrar Sesión" width="30vm"></a>
                                 </div>
                             </div>

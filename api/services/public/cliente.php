@@ -23,6 +23,50 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Correo de usuario indefinido';
                 }
                 break;
+                // clientes.php
+            case 'readOne':
+                if (!$cliente->setId($_SESSION['idCliente'])) { // Obtener el idCliente de la sesión actual
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($result['dataset'] = $cliente->readOne()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'Cliente inexistente';
+                }
+                break;
+            case 'updateRow':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$cliente->setId($_POST['idClienteModal']) or                    
+                    !$cliente->setNombre($_POST['nombreClienteModal']) or
+                    !$cliente->setApellido($_POST['apellidoClienteModal']) or
+                    !$cliente->setCorreo($_POST['correoClienteModal']) or
+                    !$cliente->setTelefono($_POST['telefonoClienteModal']) or
+                    !$cliente->setDireccion($_POST['direccionClienteModal']) 
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($cliente->updateRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Datos modificados correctamente';
+                    
+                } else {
+                    $result['error'] = 'Ocurrió un problema al modificar los datos';
+                }
+                break;
+                case 'changePassword':
+                    $_POST = Validator::validateForm($_POST);
+                    if (!$cliente->checkPassword($_POST['claveActual'])) {
+                        $result['error'] = 'Contraseña actual incorrecta';
+                    } elseif ($_POST['claveNueva'] != $_POST['confirmarClave']) {
+                        $result['error'] = 'Confirmación de contraseña diferente';
+                    } elseif (!$cliente->setClave($_POST['claveNueva'])) {
+                        $result['error'] = $cliente->getDataError();
+                    } elseif ($cliente->changePassword()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Contraseña cambiada correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al cambiar la contraseña';
+                    }
+                    break;
             case 'logOut':
                 if (session_destroy()) {
                     $result['status'] = 1;
