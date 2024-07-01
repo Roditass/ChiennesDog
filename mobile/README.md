@@ -11,6 +11,6 @@ COMANDOS PARA INICIALIZAR EL PROYECTO
 
     cd mobile 
     cd chiennesdog
-    npm run android
+    npm run android / npx expo start
 
 DEPENDENCIAS DEL PROYECTO
