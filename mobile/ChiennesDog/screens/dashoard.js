@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Perfil = () => {
+const Dashoard = () => {
   return (
     <View>
-      <Text>Perfil</Text>
+      <Text>dashoard</Text>
     </View>
   )
 }
 
-export default Perfil
+export default Dashoard
