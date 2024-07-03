@@ -52,6 +52,23 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar los datos';
                 }
                 break;
+                case 'updateRow2':
+                    $_POST = Validator::validateForm($_POST);
+                    if (            
+                        !$cliente->setId($_SESSION['idCliente']) or     
+                        !$cliente->setNombre($_POST['nombreClienteModal']) or
+                        !$cliente->setApellido($_POST['apellidoClienteModal']) or
+                        !$cliente->setTelefono($_POST['telefonoClienteModal']) or
+                        !$cliente->setDireccion($_POST['direccionClienteModal']) 
+                    ) {
+                        $result['error'] = $cliente->getDataError();
+                    } elseif ($cliente->updateRow2()) {
+                        $result['status'] = 1;
+                        $result['message'] = 'Datos modificados correctamente';
+                    } else {
+                        $result['error'] = 'Ocurrió un problema al modificar los datos';
+                    }
+                    break;
                 case 'changePassword':
                     $_POST = Validator::validateForm($_POST);
                     if (!$cliente->checkPassword($_POST['claveActual'])) {
