@@ -1,23 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
     ScrollView,
     TouchableOpacity,
     View,
     Text,
-    ActivityIndicator,
     StyleSheet,
     Alert,
-    ImageBackground,
     Image,
-    StatusBar,
     KeyboardAvoidingView,
     Platform,
     Dimensions,
 } from "react-native";
 
 import fetchData from "../utils/fetchData";
-import LogInput from "../components/inputs/logInput";
-import CorreoInput from "../components/inputs/correoInput";
 import DefaultBtn from "../components/buttons/defaultBtn";
 import Svg, { Path } from "react-native-svg";
 
@@ -42,6 +37,10 @@ export default function ProductoDetalle({ navigation }) {
         navigation.replace("Navigation", {
             screen: "Carrito",
         });
+    };
+
+    const navegarValoracion = async () => {
+        navigation.replace("Valoracion");
     };
 
     return (
@@ -87,7 +86,7 @@ export default function ProductoDetalle({ navigation }) {
                     <View style={styles.bottonContent}>
                         <DefaultBtn
                             textoBoton="Agregar al carrito"
-                            accionBoton={navegarCarrito}
+                            accionBoton={navegarValoracion}
                         />
                         <TouchableOpacity onPress={handleDecrease}>
                             <Text style={styles.quantityButton}>-</Text>

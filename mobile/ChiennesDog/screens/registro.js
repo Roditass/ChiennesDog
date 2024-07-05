@@ -125,10 +125,14 @@ export default function Registro({ navigation }) {
             keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
         >
             <ScrollView style={styles.mainContainer}>
-                <View style={styles.Header}>
-                    <Text style={styles.tittle}>Chiennes Dog</Text>
+            <View style={styles.containerImg}>
+                    <Image
+                        source={require("../assets/images/backgrounds/perros.png")}
+                        style={styles.image}
+                    />
                 </View>
                 <View style={styles.Content}>
+                <Text style={styles.tittle}>Registro</Text>
                     <AlfabeticoInput
                         placeHolder="Nombre"
                         setValor={nombre}
@@ -199,17 +203,37 @@ const styles = StyleSheet.create({
     mainContainer: {
         backgroundColor: "#FFE6D5",
     },
-
+    image: {
+        resizeMode: "cover",  // Ajusta el modo de escalado según sea necesario
+        width: Dimensions.get("window").width / 1, // Ajusta el ancho según el ancho de la pantalla
+        height: Dimensions.get("window").height / 3,  // Ajusta la altura según sea necesario
+        marginRight: Dimensions.get("window").width * 0.14, // Mueve la imagen hacia la derecha para cortar del lado derecho
+    },    
     Content: {
         width: "100%",
-        height: Dimensions.get("window").height / 0.8,
+        height: Dimensions.get("window").height / 0.7,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#FF9E08",
-        marginTop: Dimensions.get("window").height / 2.8,
         borderRightColor: "#FF6607",
         borderRightWidth: 30,
         borderTopEndRadius: 90,
         padding: 30,
+    },
+    tittle: {
+        fontSize: 36,
+        fontWeight: "bold",
+        color: "#fff",
+        marginBottom: 50,
+    },
+    btnLink:{
+        marginTop: "5%",
+        marginBottom: "15%",
+    },
+
+    textLink: {
+        color: "#FFFFFF",
+        fontSize: 18,
+        fontFamily: "medium",
     },
 });

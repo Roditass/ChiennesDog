@@ -1,11 +1,16 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import { TouchableOpacity, Text, Image, StyleSheet, Dimensions, View } from 'react-native';
 
 const ColorCard = ({ text, image, onPress }) => {
     return (
         <TouchableOpacity style={styles.card} onPress={onPress}>
-            <Text style={styles.cardText}>{text}</Text>
-            <Image source={image} style={styles.image} />
+            <View style={styles.rightcontent}>
+                <Image source={image} style={styles.image} />
+            </View> 
+            <View style={styles.leftcontent}>
+                <Text style={styles.cardText}>{text}</Text>
+            </View>
+                       
         </TouchableOpacity>
     );
 };
@@ -18,15 +23,26 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         width: Dimensions.get("window").width / 1.2,
         alignItems: "center",
-        padding: 10,
-        paddingHorizontal: 30,
         marginVertical: "2%",
+    },
+    leftcontent: {
+        flex: 1,
+        backgroundColor: "#472B1F",
+        height: "100%",
+        justifyContent: "center",
+        borderTopRightRadius: 20,
+        borderBottomRightRadius: 20,
+        paddingHorizontal: "4%",
+    },
+    rightcontent: {
+        flex: 1,
+        alignItems: 'center', 
     },
     cardText: {
         fontSize: 18,
         fontWeight: "bold",
-        color: "#000",
-        flex: 1,
+        color: "#ffffff",
+        alignSelf: "center",
     },
     image: {
         width: 100,

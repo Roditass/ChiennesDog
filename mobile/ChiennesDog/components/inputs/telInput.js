@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
         marginTop: "1%",
         width: "90%",
         alignSelf: "center",
+        marginVertical: "7%",
     },
     input: {
         fontSize: 22,
