@@ -111,7 +111,13 @@ export default function Sesion({ navigation }) {
             keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
         >
             <ScrollView style={styles.mainContainer}>
-                <View style={styles.Content}>
+            <View style={styles.containerImg}>
+                    <Image
+                        source={require("../assets/images/backgrounds/perros.png")}
+                        style={styles.image}
+                    />
+                </View>
+                <View style={styles.content}>
                     <Text style={styles.tittle}>Iniciar sesión</Text>
                     <CorreoInput
                         placeHolder="Usuario"
@@ -147,14 +153,18 @@ const styles = StyleSheet.create({
     mainContainer: {
         backgroundColor: "#FFE6D5",
     },
-
-    Content: {
+    image: {
+        resizeMode: "cover",  // Ajusta el modo de escalado según sea necesario
+        width: Dimensions.get("window").width / 1, // Ajusta el ancho según el ancho de la pantalla
+        height: Dimensions.get("window").height / 3,  // Ajusta la altura según sea necesario
+        marginLeft: Dimensions.get("window").width * 0.14,
+    },
+    content: {
         width: "100%",
         height: Dimensions.get("window").height / 1.4,
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#AC4B12",
-        marginTop: Dimensions.get("window").height / 2.8,
         borderLeftColor: "#FF6607",
         borderLeftWidth: 30,
         borderTopStartRadius: 90,
@@ -169,6 +179,7 @@ const styles = StyleSheet.create({
     },
 
     btnLink:{
+        marginTop: "5%",
         marginBottom: "15%",
     },
 

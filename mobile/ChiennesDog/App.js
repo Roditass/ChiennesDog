@@ -9,6 +9,10 @@ import Registro from './screens/registro';
 import Recuperacion from './screens/recuperacionContrasena';
 import Cambio from './screens/cambioContrasena';
 import Navigation from './components/navigation/bottomNavigation';
+import ProductoGale from './screens/productoGaleria';
+import ProductoInfo from './screens/productoDetalle';
+import Valoracion from './screens/valoracion';
+import Carrito from './screens/carrito';
 
 export default function App() {
 
@@ -25,6 +29,10 @@ export default function App() {
         <Stack.Screen name="Navigation" component={Navigation} />
         <Stack.Screen name="Recuperacion" component={Recuperacion} />
         <Stack.Screen name="Cambio" component={Cambio} />
+        <Stack.Screen name="ProductoGale" component={ProductoGale} />
+        <Stack.Screen name="ProductoInfo" component={ProductoInfo} />
+        <Stack.Screen name="Carrito" component={Carrito} />
+        <Stack.Screen name="Valoracion" component={Valoracion} />
       </Stack.Navigator>
     </NavigationContainer>
   );
