@@ -50,7 +50,20 @@ class ClienteHandler
             return false;
         }
     }
-
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT clave_cliente
+                FROM tb_clientes
+                WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['clave_cliente'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function changePassword()
     {
         $sql = 'UPDATE tb_clientes
@@ -110,7 +123,7 @@ class ClienteHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_cliente, apellido_cliente, nombre_cliente, telefono_cliente, correo_cliente, dui_cliente
+        $sql = 'SELECT id_cliente, apellido_cliente, nombre_cliente, telefono_cliente, correo_cliente, dui_cliente, nacimiento_cliente, direccion_cliente
                 FROM tb_clientes
                 WHERE id_cliente = ?';
         $params = array($this->id);
@@ -120,9 +133,18 @@ class ClienteHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_clientes
-                SET nombre_cliente = ?, apellido_cliente = ?, dui_cliente = ?, estado_cliente = ?, telefono_cliente = ?, nacimiento_cliente = ?, direccion_cliente = ?
+                SET nombre_cliente = ?, apellido_cliente = ?, telefono_cliente = ?, direccion_cliente = ?, correo_cliente = ?
                 WHERE id_cliente = ?';
-        $params = array($this->nombre, $this->apellido, $this->dui, $this->estado, $this->telefono, $this->nacimiento, $this->direccion, $this->id);
+        $params = array($this->nombre, $this->apellido, $this->telefono,  $this->direccion,$this->correo, $this->id);
+        return Database::executeRow($sql, $params);
+    }
+
+    public function updateRow2()
+    {
+        $sql = 'UPDATE tb_clientes
+                SET nombre_cliente = ?, apellido_cliente = ?, telefono_cliente = ?, direccion_cliente = ?, estado_cliente = 1
+                WHERE id_cliente = ?';
+        $params = array($this->nombre, $this->apellido, $this->telefono, $this->direccion, $this->id);
         return Database::executeRow($sql, $params);
     }
 

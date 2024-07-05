@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "ChiennesDog",
+    "slug": "ChiennesDog",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icons/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/images/backgrounds/splash2.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#FF9E08"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icons/adaptive-icon.png",
+        "backgroundColor": "#FF9E08"
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/icons/icon.png"
+    }
+  }
+}
