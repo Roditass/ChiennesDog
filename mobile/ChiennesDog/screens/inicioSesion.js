@@ -17,6 +17,7 @@ import {
 
 import fetchData from "../utils/fetchData";
 import LogInput from "../components/inputs/logInput";
+import CorreoInput from "../components/inputs/correoInput";
 import DefaultBtn from "../components/buttons/defaultBtn";
 
 export default function Sesion({ navigation }) {
@@ -112,7 +113,7 @@ export default function Sesion({ navigation }) {
             <ScrollView style={styles.mainContainer}>
                 <View style={styles.Content}>
                     <Text style={styles.tittle}>Iniciar sesión</Text>
-                    <LogInput
+                    <CorreoInput
                         placeHolder="Usuario"
                         setValor={usuario}
                         setTextChange={setUsuario}

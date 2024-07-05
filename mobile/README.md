@@ -19,3 +19,4 @@ DEPENDENCIAS DEL PROYECTO
     npm install @react-navigation/native-stack
     npm install @react-navigation/bottom-tabs
     npm install react-native-svg
+    npm install @react-native-community/datetimepicker
