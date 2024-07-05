@@ -111,7 +111,7 @@ export default function Sesion({ navigation }) {
             keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
         >
             <ScrollView style={styles.mainContainer}>
-                <View style={styles.Content}>
+                <View style={styles.content}>
                     <Text style={styles.tittle}>Iniciar sesión</Text>
                     <CorreoInput
                         placeHolder="Usuario"
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFE6D5",
     },
 
-    Content: {
+    content: {
         width: "100%",
         height: Dimensions.get("window").height / 1.4,
         justifyContent: "center",
