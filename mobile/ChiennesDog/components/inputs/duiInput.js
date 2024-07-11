@@ -1,15 +1,18 @@
 import { View, TextInput, StyleSheet, Text, Dimensions } from "react-native";
 import React, { useState } from "react";
 
+// Definición del componente funcional DuiInput
 export default function DuiInput({
-    placeHolder,
-    setValor,
-    contra,
-    setTextChange,
-    texto,
-    bloqueado,
+    placeHolder,   // Propiedad para el placeholder del TextInput
+    setValor,      // Valor del TextInput
+    contra,        // Booleano para mostrar el texto como contraseña
+    setTextChange, // Función para manejar el cambio de texto
+    texto,         // Texto opcional a mostrar arriba del TextInput
+    bloqueado,     // Booleano para determinar si el TextInput está editable
 }) {
+    // Estado para manejar el mensaje de error
     const [errorMessage, setErrorMessage] = useState("");
+    // Función para manejar el cambio de texto en el TextInput
     const handleTextChange = (text) => {
         // Limpiar el texto de caracteres no deseados
         const cleanedText = text.replace(/[^0-9-]/g, "");
@@ -22,12 +25,12 @@ export default function DuiInput({
         // Validar el patrón completo ########-#
         const duiPattern = /^\d{8}-\d$/;
         if (duiPattern.test(text) || text === "") {
-            setErrorMessage("");
+            setErrorMessage(""); // Texto válido o vacío, limpiar mensaje de error
             
         } else {
-            setErrorMessage("Número de DUI debe seguir el formato ########-#.");
+            setErrorMessage("Número de DUI debe seguir el formato ########-#."); // Texto inválido, mostrar mensaje de error
         }
-        setTextChange(text);
+        setTextChange(text); // Llamar a la función setTextChange con el texto actualizado
     };
     return (
         <View style={styles.inputConteiner}>
@@ -50,19 +53,20 @@ export default function DuiInput({
     );
 }
 
+// Creación de los estilos para los componentes
 const styles = StyleSheet.create({
     inputConteiner: {
-        backgroundColor: "#FFE6D5",
-        padding: 12,
-        paddingLeft: 22,
-        borderRadius: 20,
-        marginTop: "1%",
-        width: "90%",
-        alignSelf: "center",
-        marginVertical: "7%",
+        backgroundColor: "#FFE6D5", // Color de fondo del contenedor del input
+        padding: 12, // Espaciado interno
+        paddingLeft: 22, // Espaciado interno a la izquierda
+        borderRadius: 20, // Bordes redondeados
+        marginTop: "1%", // Margen superior
+        width: "90%", // Ancho del contenedor (90% del contenedor padre)
+        alignSelf: "center", // Centrar el contenedor horizontalmente
+        marginVertical: "7%", // Margen vertical
     },
     input: {
-        fontSize: 22,
-        fontWeight: "medium",
+        fontSize: 22, // Tamaño de la fuente
+        fontWeight: "medium", // Grosor de la fuente (medio)
     },
 });

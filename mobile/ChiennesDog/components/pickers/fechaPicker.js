@@ -4,30 +4,32 @@ import { View, Platform, StyleSheet, Text } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Svg, { Path } from "react-native-svg";
 
+// Definiendo el componente DatePicker
 export default function DatePicker({ label, setValor }) {
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false); // Estado para controlar la visibilidad del DatePicker
     const [value, setValue] = useState(new Date()); // Estado local para almacenar la fecha seleccionada
 
+    // Función que se ejecuta al cambiar la fecha seleccionada en el DatePicker
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || new Date(); // Si no se selecciona una fecha, se mantiene la actual
         setShow(Platform.OS === "ios"); // Mostrar el DatePicker en iOS
         setValue(currentDate); // Actualizar el valor utilizando setValue
         setFormattedDate(currentDate); // Actualizar el valor enviado a través de setValor con formato personalizado
     };
-
+    // Función para mostrar el DatePicker
     const showMode = () => {
         setShow(true); // Mostrar el DatePicker al establecer show en true
     };
-
+    // Función para formatear la fecha seleccionada en el formato deseado
     const setFormattedDate = (date) => {
         const formattedDate = `${date.getFullYear()}-${padZero(date.getMonth() + 1)}-${padZero(date.getDate())}`;
         setValor(formattedDate); // Actualiza el valor con el formato deseado
     };
-
+    // Función para agregar cero delante de números menores a 10
     const padZero = (num) => {
         return num < 10 ? `0${num}` : num;
     };
-
+    // Renderizado del componente
     return (
         <View style={styles.container}>
             <View style={styles.txtContainer}>
@@ -70,6 +72,7 @@ export default function DatePicker({ label, setValor }) {
     );
 }
 
+// Estilos para el componente DatePicker
 const styles = StyleSheet.create({
     container: {
         display: "flex",
@@ -88,22 +91,22 @@ const styles = StyleSheet.create({
         color: "#FFF",
     },
     dateContainer: {
-        backgroundColor: "#FFE6D5",
-        width: "90%",
-        borderRadius: 20,
+        backgroundColor: "#FFE6D5",  // Color de fondo del contenedor de fecha
+        width: "90%",  // Ancho del contenedor de fecha
+        borderRadius: 20,  // Borde redondeado del contenedor
         display: "flex",
-        flexDirection: "row",
-        padding: 12,
-        paddingLeft: 22,
-        paddingRight: 22,
+        flexDirection: "row",  // Disposición en fila de los elementos dentro del contenedor
+        padding: 12,  // Relleno interno del contenedor
+        paddingLeft: 22,  // Relleno izquierdo del contenedor
+        paddingRight: 22,  // Relleno derecho del contenedor
     },
     dateText: {
         fontSize: 22,
         color: "#828181",
     },
     btnDate: {
-        alignSelf: "center",
-        alignItems: "flex-end",
-        marginLeft: "20%",
+        alignSelf: "center",  // Alinear el botón de calendario en el centro vertical
+        alignItems: "flex-end",  // Alinear el botón de calendario a la derecha dentro de su contenedor
+        marginLeft: "20%",  // Margen izquierdo para el botón de calendario
     },
 });

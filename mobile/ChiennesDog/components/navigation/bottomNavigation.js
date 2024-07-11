@@ -4,11 +4,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Perfil, Dashboard, Carrito } from "../../screens";
 import Svg, { Path } from "react-native-svg";
 
+// Creando un navigator de pestañas inferiores (bottom tab navigator)
 const Tab = createBottomTabNavigator();
+// Opciones de configuración para el navigator de pestañas
 const screenOptions = {
-    tabBarShowLabel: false,
-    headerShown: false,
-    tabBarStyle: {
+    tabBarShowLabel: false, // Oculta las etiquetas en la barra de pestañas
+    headerShown: false, // Oculta la navegación de encabezado
+    tabBarStyle: { // Estilos para la barra de pestañas
         position: "absolute",
         bottom: 0,
         right: 0,
@@ -24,14 +26,16 @@ const screenOptions = {
 const bottomNavigation = () => {
     return (
         <Tab.Navigator
+            // Aplicando screenOptions a todas las pestañas
             screenOptions={screenOptions}
+            // Estableciendo la ruta inicial
             initialRouteName="Dashboard"
         >
             <Tab.Screen
                 name="Carrito"
-                component={Carrito}
+                component={Carrito} // Componente a renderizar para la pestaña Carrito
                 options={{
-                    tabBarIcon: ({ focused }) => {
+                    tabBarIcon: ({ focused }) => { // Personalizando el ícono de la pestaña
                         return (
                             <View
                                 style={{
@@ -59,9 +63,9 @@ const bottomNavigation = () => {
 
             <Tab.Screen
                 name="Dashboard"
-                component={Dashboard}
+                component={Dashboard} // Componente a renderizar para la pestaña Dashboard
                 options={{
-                    tabBarIcon: ({ focused }) => {
+                    tabBarIcon: ({ focused }) => { // Personalizando el ícono de la pestaña
                         return (
                             <View
                                 style={{
@@ -89,9 +93,9 @@ const bottomNavigation = () => {
 
             <Tab.Screen
                 name="Perfil"
-                component={Perfil}
+                component={Perfil} // Componente a renderizar para la pestaña Perfil
                 options={{
-                    tabBarIcon: ({ focused }) => {
+                    tabBarIcon: ({ focused }) => { // Personalizando el ícono de la pestaña
                         return (
                             <View
                                 style={{
@@ -120,4 +124,5 @@ const bottomNavigation = () => {
     );
 };
 
+// Exportando la función bottomNavigation como componente predeterminado
 export default bottomNavigation;
