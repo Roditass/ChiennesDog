@@ -10,38 +10,41 @@ import {
     Dimensions,
     KeyboardAvoidingView,
     Platform,
-    Keyboard,
+    Image
 } from "react-native";
 
 import DefaultBtn from "../components/buttons/defaultBtn";
 import fetchData from "../utils/fetchData";
+import { useNavigation } from "@react-navigation/native";
 
-export default function recuperacionContrasena({ navigation }) {
-    const [correo, setCorreo] = useState("");
+export default function Verificacion({ route }) {
+    const {token} = route.params;
+    const [codigo, setCodigo] = useState("");
     const [keyboardVisible, setkeyboardVisible] = useState(false);
+    const navigation = useNavigation();
 
-    const handlerRecuperar = async () => {
+    const handlerVerificacion = async () => {
         try {
-            //Crea un formulario FormData con datos usuario y contra
+            //Crea un formulario FormData con los datos 
             const form = new FormData();
-            form.append("correo", correo);
+            form.append("token", token);
+            form.append("codigoSecretoCOntraseña")
 
-            // Realiza una solicitud para la recuperación de contraseña usando fetchData
-            const DATA = await fetchData("cliente", "emailPasswordSender", form);
+            const DATA = await fetchData("cliente", "emailPasswordValidator", form);
 
             if (DATA.status) {
-                Alert.alert("Éxito", "Se ha enviado un codigo de verificacion");
-                setCorreo("");
-                token = DATA.dataset
-                navigation.replace("VerificacionContra", { token })
+                setCodigo("");
+                Alert.alert("Éxito", "Verificacion Correcta");
+                tokenV = DATA.dataset
+                navigation.replace("CambioContraseña", { tokenV });
             } else {
-                //Muestra alerta error
+                //MUestra Error
                 console.log(DATA);
                 Alert.alert("Error", DATA.error);
             }
         } catch (error) {
             console.error(error, "Error desde Catch");
-            Alert.alert("Error", "Ocurrió un error al recuperar la contraseña");
+            Alert.alert("Error", "Ocurrió un error al verificar la contraseña");
         }
     };
 
@@ -49,25 +52,25 @@ export default function recuperacionContrasena({ navigation }) {
         const keyboardDidShowListener = Keyboard.addListener(
             "keyboardDidShow",
             () => {
-                setkeyboardVisible(true);
+              setKeyboardVisible(true); // o el valor de desplazamiento adecuado
             }
-        );
-        const keyboardDidHideListener = Keyboard.addListener(
+          );
+          const keyboardDidHideListener = Keyboard.addListener(
             "keyboardDidHide",
             () => {
-                setkeyboardVisible(false);
+              setKeyboardVisible(false); // restablecer el valor de desplazamiento
             }
-        );
-
-        return () => {
+          );
+      
+          return () => {
             keyboardDidShowListener.remove();
             keyboardDidHideListener.remove();
-        };
-    }, []);
-
-    const navigarVerificar = async () => {
-      navigation.replace("Verificacion");
-  };
+          };
+        }, []);
+      
+    const navigarCambiar = async () => {
+        navigation.replace("CambioContraseña");
+    };
 
     return (
         <KeyboardAvoidingView
@@ -76,24 +79,21 @@ export default function recuperacionContrasena({ navigation }) {
             keyboardVerticalOffset={Platform.OS === "ios" ? 64 : 0}
         >
             <ScrollView contentContainerStyle={styles.mainContainer}>
+                <Image source={require("../path-to-your-image.png")} style={styles.logo} />
                 <View style={styles.content}>
-                    <Text style={styles.title}>Recuperación de contraseña</Text>
-                    <Text style={styles.subtitle}>Ingresa el correo del que quieres recuperar la contraseña</Text>
+                    <Text style={styles.title}>Verificación</Text>
+                    <Text style={styles.subtitle}>Ingrese el codigo de verificación que se le envio</Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="correo"
+                        placeholder="Codigo"
                         placeholderTextColor="#FFFFFF"
                         value={correo}
                         onChangeText={setCorreo}
                         keyboardType="email-address"
                         autoCapitalize="none"
                     />
-                    <DefaultBtn
-                        textoBoton="Recuperar"
-                        accionBoton={handlerRecuperar}
-                    />
-                    <TouchableOpacity style={styles.btnLink} onPress={navigarVerificar}>
-                        <Text style={styles.textLink}>Verificar Codigo</Text>
+                    <TouchableOpacity style={styles.btnLink} onPress={navigarCambiar}>
+                        <Text style={styles.textLink}>Cambiar Contraseña</Text>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -116,11 +116,16 @@ const styles = StyleSheet.create({
         height: Dimensions.get("window").height / 1.4,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#AC4B12",
-        borderLeftColor: "#FF6607",
-        borderLeftWidth: 30,
-        borderTopStartRadius: 90,
+        backgroundColor: "#FF6607",
+        borderRadius: 10,
         padding: 30,
+    },
+    logo: {
+        width: 100,
+        height: 100,
+        resizeMode: "contain",
+        alignSelf: "center",
+        marginTop: 20,
     },
     title: {
         fontSize: 36,
@@ -137,7 +142,8 @@ const styles = StyleSheet.create({
     input: {
         width: "100%",
         height: 50,
-        borderColor: "#fff",
+        backgroundColor: "#FFA07A",
+        borderColor: "#FF6607",
         borderWidth: 1,
         borderRadius: 5,
         paddingHorizontal: 10,
