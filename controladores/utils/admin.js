@@ -29,8 +29,7 @@ const loadTemplate = async () => {
     if (DATA.session) {
         // Se comprueba si existe un alias definido para el usuario, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
-            console.log("culmine")  
-            HEADER.insertAdjacentHTML('beforebegin',`
+            MAIN.insertAdjacentHTML('beforebegin', `
             <nav class="fixed-top navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">Chiennes Dog</a>
@@ -57,6 +56,10 @@ const loadTemplate = async () => {
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="GesUsuario.html">Usuarios</a>
+              </li>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Graf.html">Graficos</a>
               </li>
               <li class="nav-item">
               <a class="nav-link" onclick="logOut()">Cerrar sesión</a>

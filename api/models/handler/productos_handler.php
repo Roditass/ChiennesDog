@@ -110,13 +110,32 @@ class ProductoHandler
     */
     public function cantidadProductosCategoria()
     {
-        $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
-                FROM tb_productos
-                INNER JOIN tb_categorias USING(id_categoria)
-                GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
+        $sql = 'SELECT c.nombre_categoria, COUNT(p.id_producto) AS cantidad
+                FROM tb_productos p
+                INNER JOIN tb_categorias c ON p.id_categoria = c.id_categoria
+                GROUP BY c.nombre_categoria
+                ORDER BY cantidad DESC
+                LIMIT 5 ';
         return Database::getRows($sql);
     }
- 
+
+    public function porcentajeCategoria()
+    {
+        $sql = 'SELECT nombre_categoria, COUNT(*) AS cantidad_categorias
+                FROM tb_categorias
+                GROUP BY nombre_categoria';
+                return Database::getRows($sql);
+
+    }
+
+    public function existenciasProductos()
+    {
+        $sql = 'SELECT nombre_producto, existencias_producto
+                FROM tb_productos
+                ORDER BY existencias_producto DESC
+                LIMIT 5';
+                return Database::getRows($sql);
+    } 
     public function porcentajeProductosCategoria()
     {
         $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM producto)), 2) porcentaje

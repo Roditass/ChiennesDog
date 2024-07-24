@@ -101,15 +101,26 @@ if (isset($_GET['action'])) {
                         $result['error'] = 'Ocurrió un problema al eliminar el producto';
                     }
                     break;
+                    
                 case 'cantidadProductosCategoria':
-                    if ($result['dataset'] = $producto->cantidadProductosCategoria()) {
+                    if ($result['dataset'] = $producto-> cantidadProductosCategoria()) {
                         $result['status'] = 1;
                     } else {
                         $result['error'] = 'No hay datos disponibles';
                     }
                     break;
-                case 'porcentajeProductosCategoria':
-                    if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
+
+                case 'existenciasProductos':
+                        if ($result['dataset'] = $producto-> existenciasProductos()) {
+                            $result['status'] = 1;
+                        } else {
+                            $result['error'] = 'No hay datos disponibles';
+                        }
+                        break;
+    
+
+                case 'porcentajeCategoria':
+                    if ($result['dataset'] = $producto->porcentajeCategoria()) {
                         $result['status'] = 1;
                     } else {
                         $result['error'] = 'No hay datos disponibles';
