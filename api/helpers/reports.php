@@ -1,11 +1,13 @@
 <?php
 // Se incluye la clase para generar archivos PDF.
 require_once('../../libraries/fpdf185/fpdf.php');
+
 /*
 *   Clase para definir las plantillas de los reportes del sitio privado.
 *   Para más información http://www.fpdf.org/
 */
-class Report extends FPDF{
+class Report extends FPDF
+{
     // Constante para definir la ruta de las vistas del sitio privado.
     const CLIENT_URL = 'http://localhost/chiennesdog/vistas/admin/';
     // Propiedad para guardar el título del reporte.
@@ -25,7 +27,7 @@ class Report extends FPDF{
             // Se asigna el título del documento a la propiedad de la clase.
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
-            $this->setTitle('Chiennnes Dog - Reporte', true);
+            $this->setTitle('ChiennesDog - Reporte', true);
             // Se establecen los margenes del documento (izquierdo, superior y derecho).
             $this->setMargins(15, 15, 15);
             // Se añade una nueva página al documento con orientación vertical y formato carta, llamando implícitamente al método header()
@@ -54,7 +56,7 @@ class Report extends FPDF{
     public function header()
     {
         // Se establece el logo.
-        $this->image('../../images/logo.svg', 15, 15, 20);
+        $this->image('../../images/logo.png', 15, 15, 20);
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
