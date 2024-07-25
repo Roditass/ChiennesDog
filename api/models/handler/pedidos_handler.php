@@ -128,4 +128,20 @@ class PedidoHandler
         $params = array($this->id_detalle, $_SESSION['idPedido']);
         return Database::executeRow($sql, $params);
     }
+
+    /*
+    *   Métodos para generar reportes.
+    */
+    public function productosPedidos()
+    {
+        $sql = "SELECT c.nombre_cliente, p.estado_pedido, p.fecha_registro, p.direccion_pedido,
+                prod.nombre_producto, dp.cantidad_producto, dp.precio_producto
+                FROM tb_pedidos p
+                JOIN tb_detalles_pedidos dp ON p.id_pedido = dp.id_pedido
+                JOIN tb_clientes c ON p.id_cliente = c.id_cliente
+                JOIN tb_productos prod ON dp.id_producto = prod.id_producto
+                WHERE p.estado_pedido = 'Pendiente';";
+        $params = array();
+        return Database::getRows($sql, $params);
+    }
 }
